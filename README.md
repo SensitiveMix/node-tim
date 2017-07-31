@@ -13,7 +13,7 @@ node sdk for Tim
 
 ## Installation
 ```
-yarn add teambition
+yarn add node-tim
 ```
 
 ## Options
