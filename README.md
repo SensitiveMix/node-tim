@@ -12,6 +12,8 @@ node sdk for Tim
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 ## Installation
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/SensitiveMix/node-tim.svg)](https://greenkeeper.io/)
 ```
 yarn add teambition
 ```
