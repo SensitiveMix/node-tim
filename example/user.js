@@ -1,8 +1,6 @@
 const Tim = require('../lib/index')
-let accessToken = 'tim accessToken'
-
-let tim = new Tim(accessToken)
-
+const accessToken = 'tim accessToken'
+const tim = new Tim(accessToken)
 // callback
 tim.get('/users/me', (err, data) => {
   // user's profile

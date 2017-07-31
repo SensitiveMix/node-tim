@@ -3,8 +3,8 @@ const should = require('should')
 const expect = require('expect')
 const nock = require('nock')(`http://localhost:3000`)
 
-let accessToken = 'tim accessToken'
-let config = {
+const accessToken = 'tim accessToken'
+const config = {
   protocol: 'http',
   host: 'localhost:3000/api',
   authHost: 'localhost:3000/authHost'
