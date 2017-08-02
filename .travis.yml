@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "6.10.0"
+  - "8.2.0"
 script:
   - yarn install
   - yarn run test-cov
