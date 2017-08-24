@@ -32,6 +32,8 @@ describe('Tim SDK Testing', () => {
       .delete('/api/users/me', {name: 'tbUser'})
       .reply(500, 'failed')
       .delete('/api/users/me', {name: 'tbUser'})
+      .reply(500, 'failed') 
+      .delete('/api/users/me', {name: 'tbUser'})
       .reply(500, 'failed')
   })
 
@@ -66,7 +68,7 @@ describe('Tim SDK Testing', () => {
   })
 
   it('should resolve post user if valid callback request', (done) => {
-    tim.post('/users/me', {name: 'tbUser'}, null, (err, userprofile) => {
+    tim.post('/users/me', {name: 'tbUser'}, (err, userprofile) => {
       // user's profile
       console.log(err)
       if (err) throw err
@@ -88,7 +90,7 @@ describe('Tim SDK Testing', () => {
   })
 
   it('should resolve put user if valid callback request', (done) => {
-    tim.put('/users/me', {name: 'tbUser'}, null, (err, userprofile) => {
+    tim.put('/users/me', {name: 'tbUser'}, (err, userprofile) => {
       // user's profile
       if (err) throw err
       expect(userprofile).toBe('ok')
@@ -111,7 +113,7 @@ describe('Tim SDK Testing', () => {
   })
 
   it('should resolve delete user if valid callback request', (done) => {
-    tim.del('/users/me', {name: 'tbUser'}, null, (err, userprofile) => {
+    tim.del('/users/me', {name: 'tbUser'}, (err, userprofile) => {
       // user's profile
       if (err) throw err
       expect(userprofile).toBe('ok')
@@ -135,7 +137,16 @@ describe('Tim SDK Testing', () => {
   })
 
   it('should reject delete user if valid callback request', (done) => {
-    tim.del('/users/me', {name: 'tbUser'}, null, (err, userprofile) => {
+    tim.del('/users/me', {name: 'tbUser'}, (err, userprofile) => {
+      // user's profile
+      expect(err).toBe('failed')
+      done()
+    })
+  })  
+  
+  it('should reslove if not init token', (done) => {
+    let timNoToken = new Tim(null, config)
+    timNoToken.del('/users/me', {name: 'tbUser', accessToken: 'accessToken'}, (err, userprofile) => {
       // user's profile
       expect(err).toBe('failed')
       done()
