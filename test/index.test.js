@@ -62,15 +62,18 @@ describe('Tim SDK Testing', () => {
         expect(userprofile).toBe('ok')
         done()
       })
+      .catch(e => console.log(e))
   })
 
   it('should resolve post user if valid callback request', (done) => {
-    tim.post('/users/me', {name: 'tbUser'}, (err, userprofile) => {
+    tim.post('/users/me', {name: 'tbUser'}, null, (err, userprofile) => {
       // user's profile
+      console.log(err)
       if (err) throw err
       expect(userprofile).toBe('ok')
       done()
     })
+    .catch(e => console.log(e))
   })
 
   it('should resolve put user if valid promise request', (done) => {
@@ -85,7 +88,7 @@ describe('Tim SDK Testing', () => {
   })
 
   it('should resolve put user if valid callback request', (done) => {
-    tim.put('/users/me', {name: 'tbUser'}, (err, userprofile) => {
+    tim.put('/users/me', {name: 'tbUser'}, null, (err, userprofile) => {
       // user's profile
       if (err) throw err
       expect(userprofile).toBe('ok')
@@ -108,7 +111,7 @@ describe('Tim SDK Testing', () => {
   })
 
   it('should resolve delete user if valid callback request', (done) => {
-    tim.del('/users/me', {name: 'tbUser'}, (err, userprofile) => {
+    tim.del('/users/me', {name: 'tbUser'}, null, (err, userprofile) => {
       // user's profile
       if (err) throw err
       expect(userprofile).toBe('ok')
@@ -132,7 +135,7 @@ describe('Tim SDK Testing', () => {
   })
 
   it('should reject delete user if valid callback request', (done) => {
-    tim.del('/users/me', {name: 'tbUser'}, (err, userprofile) => {
+    tim.del('/users/me', {name: 'tbUser'}, null, (err, userprofile) => {
       // user's profile
       expect(err).toBe('failed')
       done()
