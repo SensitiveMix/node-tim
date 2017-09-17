@@ -4,6 +4,7 @@
   "description": "",
   "main": "./lib/index.js",
   "scripts": {
+    "generate":"conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "test": "./node_modules/mocha/bin/_mocha  test/ --bail",
     "test-cov": "node node_modules/istanbul-harmony/lib/cli.js cover ./node_modules/mocha/bin/_mocha  -- --timeout 500000 --recursive test/"
   },
